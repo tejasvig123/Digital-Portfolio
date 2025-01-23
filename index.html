@@ -1,50 +1,198 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="CS-II/style.css"/>
-    <body>
-      <header>
-	<h1>About Me</h1>
-      </header>
-      <div style="padding: 7px">
-	<a href="index.html" class='navBar'>ABOUT ME</a>
-	&nbsp; &nbsp;
-	<a href="CS-II/portfolioreal.html" class='navBar'>PORTFOLIO</a>
-	&nbsp; &nbsp;
-	<a href="CS-II/isp.html" class='navBar'>ISP</a>
-	&nbsp; &nbsp;
-	<a href="CS-II/Essays/fingerprints.html" class='navBar'>FINGERPRINTS</a>
-	&nbsp; &nbsp;
-	<a href="CS-II/Essays/AI Sentience.html" class='navBar'>AI SENTIENCE</a>
-	&nbsp; &nbsp;
-	<a href="CS-II/Projects/Optimal Sort.html" class='navBar'>OPTIMAL SORT</a>
-	&nbsp; &nbsp;
-	<a href="CS-II/Projects/Business Plan/index.html" class='navBar'>ISP Proposal</a>
-      </div>
-<div style="position: absolute; top: 0;">
-      <select name="clr" onchange="document.fgColor=this.options[this.selectedIndex].value" size="1">
-	<br>
-	<option value="black">black
-	<option value="orange">orange
-	<option value="flamingred">fuschia
-	<option value="lightyellow">light yellow
-	<option value="cyan">cyan
-	<option value="yellow">yellow
-	<option value="red">red
-	<option value="white">white</option>
-	</select>&nbsp;&nbsp;Change Text Color
-</div>
-<div class="index">
-  <main class="essay">
-    <h3 class="hi"><a href="CS-II/Essays/Decision Making.html">Decision Making Bias Essay</a> </h3>
-	<h3 class="hi">Welcome! To start it off, let's learn some facts about myself! I am currently enrolled in CS-II, and although I was sort of pushed into it, I have started to slowly like it over time and have even made some of my own projects outside of this class, such as a personality quiz, a cybersecurity app, and a prototype for an e-library! I am also on the Allen Varsity Tennis Team and have been since a freshman. I also play competitive tennis outside of school and I hope to continue doing that by playing college tennis. </h3>
-	<img src="https://i.postimg.cc/NjpTtH2z/IMG-1848.jpg" alt="me playing tennis">               
-	<h3 class="hi">I am very interested in fine arts such as digital art, painting, and graphic design. I am also currently in Animation II, and we are working on a short film right now! The college I want to go to the most is Savannah College of Art and Design(SCAD), which is located in Savannah, Georgia. If you couldn't tell already, animation is what I want to major in and have a minor in computer science.</h3>
-	<img src="https://i.postimg.cc/1RFPprvp/KGQs-XWz-Vse-Mbv-SNn8-SW-Fu-T-1200-80.jpg" alt="mickey mouse animation original">
-	<h3 class="hi">I have been studying computer science for the past 3 years inside and outside of school and through it, I have met so many new people and learned so much that I never knew before and I am excited to keep that journey going!</h3>
-	<img src="https://i.postimg.cc/vmjFn49q/dreamstime-l-124110584.jpg" alt="code">
-<h3>My github link is down below.</h3>
-<a href="https://github.com/tejasvig12/Digital-Portfolio.git">Github</a>
-</div>
-    </body>
-    </html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto+Serif:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f8fa;
+      color: #2c3e50;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, #3498db, #2ecc71);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      background: white;
+      padding: 1rem 0;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #3498db;
+      margin: 0 15px;
+      font-size: 1rem;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: #2ecc71;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease-out;
+    }
+
+    .container.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h3 {
+      font-family: 'Roboto Serif', serif;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      margin: 1.5rem 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 700px;
+      margin: 1.5rem auto;
+      border-radius: 12px;
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    img.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .button-container a {
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      background-color: #3498db;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .button-container a:hover {
+      background-color: #2ecc71;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #34495e;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+    }
+
+    footer a {
+      color: #1abc9c;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>About Me</h1>
+  </header>
+
+  <nav class="nav">
+    <a href="#about">About Me</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div id="about" class="container">
+    <h3>Welcome! To start it off, let's learn some facts about myself. I am currently enrolled in CS-II, and although I was sort of pushed into it, I have started to enjoy it and have even made some of my own projects outside of this class, such as a personality quiz, a cybersecurity app, and a prototype for an e-library!</h3>
+    <img src="https://i.postimg.cc/NjpTtH2z/IMG-1848.jpg" alt="Me playing tennis">
+  </div>
+
+  <div id="projects" class="container">
+    <h3>I am very interested in fine arts such as digital art, painting, and graphic design. I am also currently in Animation II, and we are working on a short film right now! The college I want to go to the most is Savannah College of Art and Design (SCAD), which is located in Savannah, Georgia.</h3>
+    <img src="https://i.postimg.cc/1RFPprvp/KGQs-XWz-Vse-Mbv-SNn8-SW-Fu-T-1200-80.jpg" alt="Original Mickey Mouse Animation">
+  </div>
+
+  <div id="skills" class="container">
+    <h3>I have been studying computer science for the past three years inside and outside of school. Through it, I have met so many new people and learned so much that I never knew before. I am excited to keep that journey going!</h3>
+    <img src="https://i.postimg.cc/vmjFn49q/dreamstime-l-124110584.jpg" alt="Code">
+  </div>
+
+  <div class="button-container">
+    <a href="https://github.com/tejasvig12/Digital-Portfolio.git">Visit My Github</a>
+  </div>
+
+  <footer>
+    <p>Designed by Tejasvi Gutta</p>
+    <p><a href="https://github.com/tejasvig12/Digital-Portfolio.git">Github Profile</a></p>
+  </footer>
+
+  <script>
+    // Reveal Elements on Scroll
+    const revealElements = document.querySelectorAll('.container, img');
+
+    const revealOnScroll = () => {
+      const triggerHeight = window.innerHeight * 0.8;
+      revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        if (elementTop < triggerHeight) {
+          element.classList.add('show');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+
+    // Initial load trigger
+    revealOnScroll();
+  </script>
+</body>
+</html>
